@@ -41,8 +41,7 @@ struct ContentView: View {
     private var targetRotationX: Double = 0
     @State
     private var targetRotationY: Double = 0
-    @State
-    private var targetRotationZ: Double = 0
+
     
 
     var body: some View {
@@ -64,17 +63,14 @@ struct ContentView: View {
                     // Map acceleration to rotation (target values):
                     // X acceleration -> Y rotation (tilt left/right)
                     // Y acceleration -> X rotation (tilt forward/back)
-                    // Z acceleration -> Z rotation (twist)
                     let targetRotationX = (accelData.acceleration.y * scaleFactor + 45) * -1
                     let targetRotationY = accelData.acceleration.x * scaleFactor
-                    let targetRotationZ = accelData.acceleration.z * scaleFactor
                     
 
                     
                     let subject = scene3D.findObject(name: "subject")
                     subject?.rotation.x = Float(targetRotationX)
                     subject?.rotation.y = Float(targetRotationY)
-                    // subject?.rotation.z = Float(smoothedRotationZ)
                 }
             }
             
