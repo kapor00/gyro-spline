@@ -4,6 +4,7 @@
 //
 //  Created by Gábor Pribék on 2025. 11. 15..
 //
+
 import SplineRuntime
 import SwiftUI
 import Combine
@@ -42,13 +43,8 @@ struct ContentView: View {
     @State
     private var smoothedRotationY: Double = 0
 
-    
-
     var body: some View {
-      
-        
         ZStack {
-            
             let url = URL(string: "https://build.spline.design/9QGbx5zTdo-MmXfcQcWA/scene.splineswift")!
             SplineView(sceneFileURL: url, controller: scene3D)
             .edgesIgnoringSafeArea(.all) // Extend under safe areas (like notch, home bar)
@@ -69,6 +65,7 @@ struct ContentView: View {
                 }
             }
             
+            //section for gyro data debugging
             /*
             HStack(spacing:24) {
                 // Display Accelerometer Data
