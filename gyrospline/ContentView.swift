@@ -21,7 +21,7 @@ class MotionManager: ObservableObject {
     // Function to start accelerometer updates
     func startAcceleromoterUpdates() {
         if motion.isAccelerometerAvailable {
-            motion.accelerometerUpdateInterval = 0.1 // Updates every 0.1 seconds
+            motion.accelerometerUpdateInterval = 1.0 / 120.0 // 60 FPS
             motion.startAccelerometerUpdates(to: .main) { [weak self] data, error in
                 if let data = data {
                     self?.accelerometerData = data // Update accelerometer data
@@ -38,9 +38,9 @@ struct ContentView: View {
 
     // Smoothed rotation values (current displayed rotation)
     @State
-    private var targetRotationX: Double = 0
+    private var smoothedRotationX: Double = 0
     @State
-    private var targetRotationY: Double = 0
+    private var smoothedRotationY: Double = 0
 
     
 
@@ -55,22 +55,17 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onChange(of: motionManager.accelerometerData) {
                 if let accelData = motionManager.accelerometerData {
-                    // Accelerometer data is in g-forces (-1.0 to 1.0 typically)
-                    // Convert acceleration to rotation angles (in degrees)
-                    // Scale factor to convert g-force to rotation angle
-                    let scaleFactor = 90.0 // Max rotation angle in degrees
+                    let scaleFactor = 90.0
+                    let targetX = (accelData.acceleration.y * scaleFactor + 45) * -1
+                    let targetY = accelData.acceleration.x * scaleFactor
                     
-                    // Map acceleration to rotation (target values):
-                    // X acceleration -> Y rotation (tilt left/right)
-                    // Y acceleration -> X rotation (tilt forward/back)
-                    let targetRotationX = (accelData.acceleration.y * scaleFactor + 45) * -1
-                    let targetRotationY = accelData.acceleration.x * scaleFactor
-                    
-
+                    // Exponential smoothing (0.15 = smooth, 0.3 = responsive)
+                    smoothedRotationX += (targetX - smoothedRotationX) * 0.05
+                    smoothedRotationY += (targetY - smoothedRotationY) * 0.05
                     
                     let subject = scene3D.findObject(name: "subject")
-                    subject?.rotation.x = Float(targetRotationX)
-                    subject?.rotation.y = Float(targetRotationY)
+                    subject?.rotation.x = Float(smoothedRotationX)
+                    subject?.rotation.y = Float(smoothedRotationY)
                 }
             }
             
