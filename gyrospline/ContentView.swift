@@ -21,7 +21,7 @@ class MotionManager: ObservableObject {
     // Function to start accelerometer updates
     func startAcceleromoterUpdates() {
         if motion.isAccelerometerAvailable {
-            motion.accelerometerUpdateInterval = 1.0 / 120.0 // 60 FPS
+            motion.accelerometerUpdateInterval = 1.0 / 100.0 // 100 FPS
             motion.startAccelerometerUpdates(to: .main) { [weak self] data, error in
                 if let data = data {
                     self?.accelerometerData = data // Update accelerometer data
@@ -49,7 +49,7 @@ struct ContentView: View {
         
         ZStack {
             
-            let url = URL(string: "https://build.spline.design/GRQQcwUMVCb10ErKjdMt/scene.splineswift")!
+            let url = URL(string: "https://build.spline.design/9QGbx5zTdo-MmXfcQcWA/scene.splineswift")!
             SplineView(sceneFileURL: url, controller: scene3D)
             .edgesIgnoringSafeArea(.all) // Extend under safe areas (like notch, home bar)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -60,8 +60,8 @@ struct ContentView: View {
                     let targetY = accelData.acceleration.x * scaleFactor
                     
                     // Exponential smoothing (0.15 = smooth, 0.3 = responsive)
-                    smoothedRotationX += (targetX - smoothedRotationX) * 0.05
-                    smoothedRotationY += (targetY - smoothedRotationY) * 0.05
+                    smoothedRotationX += (targetX - smoothedRotationX) * 0.1
+                    smoothedRotationY += (targetY - smoothedRotationY) * 0.1
                     
                     let subject = scene3D.findObject(name: "subject")
                     subject?.rotation.x = Float(smoothedRotationX)
@@ -69,7 +69,8 @@ struct ContentView: View {
                 }
             }
             
-            VStack(spacing:24) {
+            /*
+            HStack(spacing:24) {
                 // Display Accelerometer Data
                 Text("Accelerometer Data")
                     .font(.headline)
@@ -89,6 +90,7 @@ struct ContentView: View {
             
             }
             .padding(.bottom, 24)
+             */
         }
     }
 }
