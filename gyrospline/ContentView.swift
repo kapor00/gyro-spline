@@ -38,11 +38,11 @@ struct ContentView: View {
 
     // Smoothed rotation values (current displayed rotation)
     @State
-    private var smoothedRotationX: Double = 0
+    private var targetRotationX: Double = 0
     @State
-    private var smoothedRotationY: Double = 0
+    private var targetRotationY: Double = 0
     @State
-    private var smoothedRotationZ: Double = 0
+    private var targetRotationZ: Double = 0
     
 
     var body: some View {
@@ -65,7 +65,7 @@ struct ContentView: View {
                     // X acceleration -> Y rotation (tilt left/right)
                     // Y acceleration -> X rotation (tilt forward/back)
                     // Z acceleration -> Z rotation (twist)
-                    let targetRotationX = accelData.acceleration.y * scaleFactor + 45
+                    let targetRotationX = (accelData.acceleration.y * scaleFactor + 45) * -1
                     let targetRotationY = accelData.acceleration.x * scaleFactor
                     let targetRotationZ = accelData.acceleration.z * scaleFactor
                     
