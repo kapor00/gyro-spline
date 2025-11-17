@@ -45,32 +45,47 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            let url = URL(string: "https://build.spline.design/9QGbx5zTdo-MmXfcQcWA/scene.splineswift")!
+            //let url = Bundle.main.url(forResource: "swift_ui_portal", withExtension: "splineswift")!
+
+            let url = URL(string: "https://build.spline.design/3ZUphPIRLkYxk1Y4pCFQ/scene.splineswift")!
             SplineView(sceneFileURL: url, controller: scene3D)
             .edgesIgnoringSafeArea(.all) // Extend under safe areas (like notch, home bar)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onChange(of: motionManager.accelerometerData) {
                 if let accelData = motionManager.accelerometerData {
-                    let scaleFactor = 90.0
-                    let targetX = (accelData.acceleration.y * scaleFactor + 45) * -1
+                    let v = accelData.acceleration.y
+                    let targetX: Double = {
+                                if v <= -0.5 {
+                                    // -0.5 -> -1.0 maps to 0 -> 90
+                                    return (-0.5 - v) / 0.5 * 60
+                                } else {
+                                    // 1 -> -0.5 maps to -90 -> 0
+                                    return (v - 1.0) / (-0.5 - 1.0) * 60 - 60
+                                }
+                            }()
+                    
+                    let scaleFactor = 60.0
+                   // let targetX = (accelData.acceleration.y * scaleFactor) * -1
                     let targetY = accelData.acceleration.x * scaleFactor
                     
                     // Exponential smoothing (0.15 = smooth, 0.3 = responsive)
                     smoothedRotationX += (targetX - smoothedRotationX) * 0.1
                     smoothedRotationY += (targetY - smoothedRotationY) * 0.1
                     
-                    let subject = scene3D.findObject(name: "subject")
+                    let subject = scene3D.findObject(name: "Subject")
                     subject?.rotation.x = Float(smoothedRotationX)
                     subject?.rotation.y = Float(smoothedRotationY)
                 }
             }
             
             //section for gyro data debugging
-            /*
-            HStack(spacing:24) {
+            
+            
+            VStack(spacing:24) {
                 // Display Accelerometer Data
                 Text("Accelerometer Data")
                     .font(.headline)
+                    
                 
                 if let data = motionManager.accelerometerData {
                     Text("X: \(data.acceleration.x, specifier: "%.2f")")
@@ -87,7 +102,8 @@ struct ContentView: View {
             
             }
             .padding(.bottom, 24)
-             */
+             
+             
         }
     }
 }
