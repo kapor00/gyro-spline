@@ -10,6 +10,20 @@ This is an experimental project that demonstrates integrating Spline's native iO
 
 **Want to learn more about Spline's Code API for SwiftUI?** Check out the [official documentation](https://docs.spline.design/exporting-your-scene/apple-platform/code-api-for-swift-ui).
 
+## Embedding Spline Scenes
+
+This project demonstrates two ways to embed Spline scenes in your SwiftUI app:
+
+- **Cloud Embedding**: The app currently loads the scene from Spline's cloud service (see `ContentView.swift`)
+- **Offline Embedding**: You can also bundle the scene file locally for offline use
+
+### The Spline Scene
+
+The original `.spline` scene file is included in the `spline scene/` folder. You can:
+
+- **Import it to Spline**: Sign up at [app.spline.design](https://app.spline.design) and import the `.spline` file to edit and customize the scene
+- **Get a copy online**: Access the scene directly at [https://app.spline.design/file/704265f5-7a21-401d-bbd5-181b6c0c97af](https://app.spline.design/file/704265f5-7a21-401d-bbd5-181b6c0c97af)
+
 ## Features
 
 - 🎮 Real-time gyroscope/accelerometer integration
