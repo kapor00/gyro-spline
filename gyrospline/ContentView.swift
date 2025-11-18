@@ -80,7 +80,7 @@ struct ContentView: View {
             
             //section for gyro data debugging
             
-            
+            /*
             VStack(spacing:24) {
                 // Display Accelerometer Data
                 Text("Accelerometer Data")
@@ -102,7 +102,7 @@ struct ContentView: View {
             
             }
             .padding(.bottom, 24)
-             
+             */
              
         }
     }
