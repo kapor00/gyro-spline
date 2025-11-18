@@ -2,7 +2,7 @@
 
 A playground project exploring how to embed Spline 3D scenes into SwiftUI applications using Spline's native runtime. This demo combines device motion sensors with interactive 3D scenes for a fun, immersive experience.
 
-![App Icon](gyrospline/Assets.xcassets/AppIcon.appiconset/Spline%20Gyro@1-1024x1024%20(8).png)
+<img width="256" height="256" alt="Spline Gyro@1-1024x1024 (8)" src="https://github.com/user-attachments/assets/6933ed89-7a95-4b24-8493-8e0a473aefee" />
 
 
 https://github.com/user-attachments/assets/8b5a60d4-82db-4a78-a03c-79c801cee647
