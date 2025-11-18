@@ -4,6 +4,10 @@ A playground project exploring how to embed Spline 3D scenes into SwiftUI applic
 
 ![App Icon](gyrospline/Assets.xcassets/AppIcon.appiconset/Spline%20Gyro@1-1024x1024%20(8).png)
 
+
+https://github.com/user-attachments/assets/8b5a60d4-82db-4a78-a03c-79c801cee647
+
+
 ## Overview
 
 This is an experimental project that demonstrates integrating Spline's native iOS runtime with SwiftUI. The app uses CoreMotion to track your device's accelerometer data and translates it into real-time 3D object rotations in a Spline scene. Tilt your device to control the 3D scene interactively!
