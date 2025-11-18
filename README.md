@@ -68,7 +68,7 @@ The original `.spline` scene file is included in the `spline scene/` folder. You
 
 ## License
 
-[Add your license here]
+This project is licensed under the MIT License.
 
 ## Author
 
