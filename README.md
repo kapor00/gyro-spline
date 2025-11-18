@@ -1,4 +1,4 @@
-# GyroSpline
+# Portal – Spline SwiftUI Gyro playground
 <img width="256" height="256" alt="spline-gyro-app-icon" src="https://github.com/user-attachments/assets/3471db4f-26cd-481e-b7e5-2746c1e450ae" />
 
 A playground project exploring how to embed Spline 3D scenes into SwiftUI applications using Spline's native runtime. This demo combines device motion sensors with interactive 3D scenes for a fun, immersive experience.
