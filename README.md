@@ -35,9 +35,8 @@ The original `.spline` scene file is included in the `spline scene/` folder. You
 
 ## Requirements
 
-- iOS 14.0 or later
-- Xcode 14.0 or later
-- Swift 5.7 or later
+- iOS 26.0 or later (didn't test on older devices)
+- Xcode 26.0 or later
 - A physical iOS device (motion sensors don't work in the simulator)
 
 ## Getting Started
@@ -55,45 +54,6 @@ The original `.spline` scene file is included in the `spline scene/` folder. You
 2. Hold your device and tilt it in different directions
 3. Watch as the 3D scene responds to your device's orientation in real-time
 
-## Project Structure
-
-```
-gyrospline/
-├── gyrospline/
-│   ├── ContentView.swift          # Main view with motion integration
-│   ├── gyrosplineApp.swift        # App entry point
-│   ├── Assets.xcassets/           # App icons and assets
-│   └── spline scene/              # Spline scene files
-└── gyrospline.xcodeproj/          # Xcode project file
-```
-
-## Demo Video
-
-<!-- To embed an MP4 video, you have a few options:
-
-Option 1: Upload to a video hosting service and embed
-<video width="100%" controls>
-  <source src="https://your-video-host.com/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-Option 2: Use GitHub's video support (drag and drop the video file into GitHub)
-![Demo Video](path/to/your/demo.mp4)
-
-Option 3: Convert to GIF and embed
-![Demo GIF](path/to/your/demo.gif)
--->
-
-**Note:** To add your demo video:
-1. Upload your MP4 file to the repository (e.g., in a `media/` folder)
-2. Replace the placeholder above with:
-   ```markdown
-   <video width="100%" controls>
-     <source src="media/demo.mp4" type="video/mp4">
-     Your browser does not support the video tag.
-   </video>
-   ```
-3. Or simply drag and drop the MP4 file into GitHub's web interface when editing the README
 
 ## Technologies
 
