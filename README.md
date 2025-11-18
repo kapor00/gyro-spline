@@ -3,12 +3,10 @@
 
 A playground project exploring how to embed Spline 3D scenes into SwiftUI applications using Spline's native runtime. This demo combines device motion sensors with interactive 3D scenes for a fun, immersive experience.
 
-
+## Overview
 
 ![portal loop v3 compressed](https://github.com/user-attachments/assets/70882780-12ef-4b7e-9f9b-92091a09ec21)
 
-
-## Overview
 
 This is an experimental project that demonstrates integrating Spline's native iOS runtime with SwiftUI. The app uses CoreMotion to track your device's accelerometer data and translates it into real-time 3D object rotations in a Spline scene. Tilt your device to control the 3D scene interactively!
 
