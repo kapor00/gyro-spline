@@ -24,7 +24,7 @@ This project demonstrates two ways to embed Spline scenes in your SwiftUI app:
 The original `.spline` scene file is included in the `spline scene/` folder. You can:
 
 - **Import it to Spline**: Sign up at [app.spline.design](https://app.spline.design) and import the `.spline` file to edit and customize the scene
-- **Get a copy online**: Access the scene directly at [https://app.spline.design/file/704265f5-7a21-401d-bbd5-181b6c0c97af](https://app.spline.design/file/704265f5-7a21-401d-bbd5-181b6c0c97af)
+- **Get a copy online**: [Access the scene here](https://app.spline.design/community/file/1ffa9c2c-534a-4eb0-8ff8-7a2d5be03225)
 
 ## Features
 
